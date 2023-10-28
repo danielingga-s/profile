@@ -22,27 +22,86 @@
         }
       </style>
 <body>
-    <section class="">
-        <div class="p-8">
-            <img src="img/photoprofile.jpg" class="rounded-full" alt="">
-            <h1 class="uppercase  box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
-                lingga sartono
-            </h1>
-            <p class="uppercase  box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
-                i'm programmer
-            </p>
-        </div>
-        <a href="https://wa.me/081575569016">
+  <div class="bg-white py-24 sm:py-32">
+    <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
+        <p class="mt-6 text-lg leading-8 text-gray-600" id="typewriter"></p>
+      </div>
+      <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+        <li>
+          <div class="flex items-center gap-x-6">
+            <img class="rounded-full" src="img/photoprofile.jpg" alt="">
+            <div>
+              <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Lingga Sartono</h3>
+              <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
+            </div>
+          </div>
+        </li>
+  
+        <!-- More people... -->
+      </ul>
+    </div>
+  </div>
+    <!-- <section class="flex flex-row">
+      <section class="basis-1/4 w-1/4 fixed border border-red-800 ">
+        left  
+      </section>
+      <section class="basis-3/4 w-3/4 right border border-blue-800">
+        right
+        <div class="container mx-auto border-2 border-red-100">
+          <img src="img/photoprofile.jpg" class="rounded-full max-h-96" alt="">
+          <h1 class="uppercase  box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
+              lingga sartono
+          </h1>
+          <p class="uppercase  box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
+              i'm programmer
+          </p>
+          <a href="https://wa.me/081575569016">
             <button  type="button" class="capitalize bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...">
                 contact me
             </button>
-        </a>
+        </a>    
+      </div>
+      </section>
         
-    </section>
+            
+    </section> -->
 
 
 
 
 <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/kymzibPLqq4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+  <script>
+  const words = ["Programmer", "Developer", "Consultant"];
+  let i = 0;
+  let j = 0;
+  let currentWord = "";
+  let isDeleting = false;
+
+  function type() {
+    currentWord = words[i];
+    if (isDeleting) {
+      document.getElementById("typewriter").textContent = currentWord.substring(0, j-1);
+      j--;
+      if (j == 0) {
+        isDeleting = false;
+        i++;
+        if (i == words.length) {
+          i = 0;
+        }
+      }
+    } else {
+      document.getElementById("typewriter").textContent = currentWord.substring(0, j+1);
+      j++;
+      if (j == currentWord.length) {
+        isDeleting = true;
+      }
+    }
+    setTimeout(type, 100);
+  }
+
+  type();
+  </script>
 </body>
 </html>
