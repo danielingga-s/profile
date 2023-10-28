@@ -2,11 +2,47 @@
 <html>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1030335661754134"
      crossorigin="anonymous"></script>
+     <script src="https://cdn.tailwindcss.com"></script>
+     <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+      <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+        }
+      </style>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
-<p>coba coba
-</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/kymzibPLqq4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <section class="">
+        <div class="p-8">
+            <img src="img/photoprofile.jpg" class="rounded-full" alt="">
+            <h1 class="uppercase  box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
+                lingga sartono
+            </h1>
+            <p class="uppercase  box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
+                i'm programmer
+            </p>
+        </div>
+        <a href="https://wa.me/081575569016">
+            <button  type="button" class="capitalize bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...">
+                contact me
+            </button>
+        </a>
+        
+    </section>
+
+
+
+
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/kymzibPLqq4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 </body>
 </html>
