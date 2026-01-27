@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <title> CALL ME NOW!</title>
+  <link rel="icon" type="image/x-icon" href="img/icon.png">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1030335661754134"
+     crossorigin="anonymous"></script>
+     <script src="https://cdn.tailwindcss.com"></script>
+     <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                clifford: '#da373d',
+              }
+            }
+          }
+        }
+      </script>
+      <style type="text/tailwindcss">
+        @layer utilities {
+          .content-auto {
+            content-visibility: auto;
+          }
+        }
+      </style>
+      <script src="//unpkg.com/alpinejs"></script>
+<body>
+  <div class="h-screen flex overflow-hidden bg-gray-200">
+    <!-- Sidebar -->
+    <div class="absolute bg-gray-800 text-white w-1/2 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300"
+        id="sidebar">
+        <!-- Your Sidebar Content -->
+        <!-- <div class="p-4">
+            <h1 class="text-2xl font-semibold">Portofolio</h1>
+            <ul class="mt-4">
+                <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Personal Profile</a></li>
+                <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Company Profile</a></li>
+                <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Wedding Invitation</a></li>
+                <li class="mb-2"><a href="#" class="block hover:text-indigo-400">Systems</a></li>
+            </ul>
+        </div> -->
+        <div class="w-full mx-auto text-left md:w-11/12 xl:w-9/12 md:text-center">
+          <h1 class="mb-6 text-4xl font-extrabold leading-none tracking-normal text-gray-900 md:text-6xl md:tracking-tight">
+            <span class="block w-full text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-500 lg:inline">Projects</span>
+          </h1>
+        </div>
+        <nav x-data="{
+          navigationMenuOpen: false,
+          navigationMenu: '',
+          navigationMenuCloseDelay: 200,
+          navigationMenuCloseTimeout: null,
+          navigationMenuLeave() {
+          let that = this;
+          this.navigationMenuCloseTimeout = setTimeout(() => {
+          that.navigationMenuClose();
+          }, this.navigationMenuCloseDelay);
+          },
+          navigationMenuReposition(navElement) {
+          this.navigationMenuClearCloseTimeout();
+          this.$refs.navigationDropdown.style.left = navElement.offsetLeft + 'px';
+          this.$refs.navigationDropdown.style.marginLeft = (navElement.offsetWidth/2) + 'px';
+          },
+          navigationMenuClearCloseTimeout(){
+          clearTimeout(this.navigationMenuCloseTimeout);
+          },
+          navigationMenuClose(){
+          this.navigationMenuOpen = false;
+          this.navigationMenu = '';
+          }
+          }"
+          class="relative z-10 w-auto">
+          <div class="relative">
+          <ul class="flex items-center justify-center flex-1 p-1 space-x-1 list-none border-t-2 rounded-md text-neutral-700 group border-neutral-200/80">
+          <li>
+          <button
+          :class="{ 'bg-neutral-100' : navigationMenu=='getting-started', 'hover:bg-neutral-100' : navigationMenu!='getting-started' }" @mouseover="navigationMenuOpen=true; navigationMenuReposition($el); navigationMenu='getting-started'" @mouseleave="navigationMenuLeave()" class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors rounded-md hover:text-neutral-900 focus:outline-none disabled:opacity-50 disabled:pointer-events-none group w-max">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-500">Personal & Company Profile</span>
+          <svg :class="{ '-rotate-180' : navigationMenuOpen==true && navigationMenu == 'getting-started' }" class="relative top-[1px] ml-1 h-3 w-3 ease-out duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          </li>
+          <li>
+          <button
+          :class="{ 'bg-neutral-100' : navigationMenu=='learn-more', 'hover:bg-neutral-100' : navigationMenu!='learn-more' }" @mouseover="navigationMenuOpen=true; navigationMenuReposition($el); navigationMenu='learn-more'" @mouseleave="navigationMenuLeave()" class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors rounded-md hover:text-neutral-900 focus:outline-none disabled:opacity-50 disabled:pointer-events-none bg-background hover:bg-neutral-100 group w-max">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-500">Wedding Inviations</span>
+          <svg :class="{ '-rotate-180' : navigationMenuOpen==true && navigationMenu == 'learn-more' }" class="relative top-[1px] ml-1 h-3 w-3 ease-out duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          </li>
+          <button
+          :class="{ 'bg-neutral-100' : navigationMenu=='systems', 'hover:bg-neutral-100' : navigationMenu!='systems' }" @mouseover="navigationMenuOpen=true; navigationMenuReposition($el); navigationMenu='systems'" @mouseleave="navigationMenuLeave()" class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors rounded-md hover:text-neutral-900 focus:outline-none disabled:opacity-50 disabled:pointer-events-none bg-background hover:bg-neutral-100 group w-max">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-500">Systems</span>
+          <svg :class="{ '-rotate-180' : navigationMenuOpen==true && navigationMenu == 'systems' }" class="relative top-[1px] ml-1 h-3 w-3 ease-out duration-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          </li>
+          <!-- <li>
+          <a href="#_" class="inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors rounded-md hover:text-neutral-900 focus:outline-none disabled:opacity-50 disabled:pointer-events-none bg-background hover:bg-neutral-100 group w-max text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-500">
+            Systems
+          </a>
+          </li> -->
+          </ul>
+          </div>
+          <div x-ref="navigationDropdown" x-show="navigationMenuOpen"
+          x-transition:enter="transition ease-out duration-100"
+          x-transition:enter-start="opacity-0 scale-90"
+          x-transition:enter-end="opacity-100 scale-100"
+          x-transition:leave="transition ease-in duration-100"
+          x-transition:leave-start="opacity-100 scale-100"
+          x-transition:leave-end="opacity-0 scale-90"
+          @mouseover="navigationMenuClearCloseTimeout()" @mouseleave="navigationMenuLeave()"
+          class="absolute top-0 pt-3 duration-200 ease-out -translate-x-1/2 translate-y-11 " x-cloak>
+          <div class="flex justify-center w-auto h-auto overflow-hidden bg-white border rounded-md shadow-sm border-neutral-200/70">
+          <div x-show="navigationMenu == 'getting-started'" class="flex items-stretch justify-center w-full max-w-2xl p-6 gap-x-3">
+          <div class="flex-shrink-0 w-48 rounded pt-28 pb-7 bg-gradient-to-br from-neutral-800 to-black">
+          <div class="relative px-7 space-y-1.5 text-white">
+          <!-- <svg class="block w-auto h-9" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M67.683 89.217h44.634l30.9 53.218H36.783l30.9-53.218Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M77.478 120.522h21.913v46.956H77.478v-46.956Zm-34.434-29.74 45.59-78.26 46.757 78.26H43.044Z" fill="currentColor"/></svg> -->
+          <img src="img/photoprofile.jpg" alt="">
+          <span class="block font-bold">Tutorbyndra</span>
+          <span class="block text-sm opacity-60">Company Profile</span>
+          </div>
+          </div>
+          <div class="w-72">
+          <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+          <span class="block mb-1 font-medium text-black">Introduction</span>
+          <span class="block font-light leading-5 opacity-50 text-purple-950">It's a clean websites for private tutoring by Indra.</span>
+          </a>
+          <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+          <span class="block mb-1 font-medium text-black">Category</span>
+          <span class="block leading-5 opacity-50 text-purple-950">Static Websites, One Page Design, Bootstrap, HTML</span>
+          </a>
+          <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+          <span class="block mb-1 font-medium text-black">Contributing</span>
+          <span class="block leading-5 opacity-50 text-purple-950">April 16th 2023</span>
+          </a>
+          </div>
+          </div>
+          <div x-show="navigationMenu == 'learn-more'" class="flex items-stretch justify-center w-full max-w-2xl p-6 gap-x-3">
+            <div class="flex-shrink-0 w-48 rounded pt-28 pb-7 bg-gradient-to-br from-neutral-800 to-black">
+            <div class="relative px-7 space-y-1.5 text-white">
+            <!-- <svg class="block w-auto h-9" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M67.683 89.217h44.634l30.9 53.218H36.783l30.9-53.218Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M77.478 120.522h21.913v46.956H77.478v-46.956Zm-34.434-29.74 45.59-78.26 46.757 78.26H43.044Z" fill="currentColor"/></svg> -->
+            <img src="img/photoprofile.jpg" alt="">
+            <span class="block font-bold">Abid & Sani </span>
+            <span class="block text-sm opacity-60">Wedding Invitation</span>
+            </div>
+            </div>
+            <div class="w-72">
+            <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+            <span class="block mb-1 font-medium text-black">Introduction</span>
+            <span class="block font-light leading-5 opacity-50 text-purple-950">It's a memorable moment by Abid & Sani.</span>
+            </a>
+            <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+            <span class="block mb-1 font-medium text-black">Category</span>
+            <span class="block leading-5 opacity-50 text-purple-950">Static Websites,Parallax Design, Bootstrap, HTML</span>
+            </a>
+            <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+            <span class="block mb-1 font-medium text-black">Contributing</span>
+            <span class="block leading-5 opacity-50 text-purple-950">October 15th 2023</span>
+            </a>
+            </div>
+            </div>
+            <div x-show="navigationMenu == 'systems'" class="flex items-stretch justify-center w-full max-w-2xl p-6 gap-x-3">
+              <div class="flex-shrink-0 w-48 rounded pt-28 pb-7 bg-gradient-to-br from-neutral-800 to-black">
+              <div class="relative px-7 space-y-1.5 text-white">
+              <!-- <svg class="block w-auto h-9" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M67.683 89.217h44.634l30.9 53.218H36.783l30.9-53.218Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M77.478 120.522h21.913v46.956H77.478v-46.956Zm-34.434-29.74 45.59-78.26 46.757 78.26H43.044Z" fill="currentColor"/></svg> -->
+              <img src="img/photoprofile.jpg" alt="">
+              <span class="block font-bold">Human Resource Reminder</span>
+              <span class="block text-sm opacity-60">Systems</span>
+              </div>
+              </div>
+              <div class="w-72">
+              <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+              <span class="block mb-1 font-medium text-black">Introduction</span>
+              <span class="block font-light leading-5 opacity-50 text-purple-950">It's a small system for reminder end of staff's contract & remind by mail.</span>
+              </a>
+              <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+              <span class="block mb-1 font-medium text-black">Category</span>
+              <span class="block leading-5 opacity-50 text-purple-950">VB.net,Email, Desktop App</span>
+              </a>
+              <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+              <span class="block mb-1 font-medium text-black">Contributing</span>
+              <span class="block leading-5 opacity-50 text-purple-950">September 16th 2017</span>
+              </a>
+              </div>
+              <div class="flex-shrink-0 w-48 rounded pt-28 pb-7 bg-gradient-to-br from-neutral-800 to-black">
+                <div class="relative px-7 space-y-1.5 text-white">
+                <!-- <svg class="block w-auto h-9" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M67.683 89.217h44.634l30.9 53.218H36.783l30.9-53.218Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M77.478 120.522h21.913v46.956H77.478v-46.956Zm-34.434-29.74 45.59-78.26 46.757 78.26H43.044Z" fill="currentColor"/></svg> -->
+                <img src="img/photoprofile.jpg" alt="">
+                <span class="block font-bold">Assets</span>
+                <span class="block text-sm opacity-60">Systems</span>
+                </div>
+                </div>
+                <div class="w-72">
+                <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+                <span class="block mb-1 font-medium text-black">Introduction</span>
+                <span class="block font-light leading-5 opacity-50 text-purple-950">It's a small system for reminder end of staff's contract & remind by mail.</span>
+                </a>
+                <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+                <span class="block mb-1 font-medium text-black">Category</span>
+                <span class="block leading-5 opacity-50 text-purple-950">Websites,Laravel, Bootstrap, HTML</span>
+                </a>
+                <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+                <span class="block mb-1 font-medium text-black">Contributing</span>
+                <span class="block leading-5 opacity-50 text-purple-950">September 16th 2018</span>
+                </a>
+                </div>
+              </div>
+          <!-- <div x-show="navigationMenu == 'learn-more'" class="flex items-stretch justify-center w-full p-6">
+          <div class="w-72">
+          <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+          <span class="block mb-1 font-medium text-black">Tailwind CSS</span>
+          <span class="block font-light leading-5 opacity-50">A utility first CSS framework for building amazing websites.</span>
+          </a>
+          <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+          <span class="block mb-1 font-medium text-black">Laravel</span>
+          <span class="block font-light leading-5 opacity-50">The perfect all-in-one framework for building amazing apps.</span>
+          </a>
+          <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+          <span class="block mb-1 font-medium text-black">Pines UI</span>
+          <span class="block leading-5 opacity-50">An Alpine JS and Tailwind CSS UI library for awesome people. </span>
+          </a>
+          </div>
+          <div class="w-72">
+          <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+          <span class="block mb-1 font-medium text-black">ApineJS</span>
+          <span class="block font-light leading-5 opacity-50">A framework without the complex setup or heavy dependencies.</span>
+          </a>
+          <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+          <span class="block mb-1 font-medium text-black">Livewire</span>
+          <span class="block leading-5 opacity-50">A seamless integration of server-side and client-side interactions.</span>
+          </a>
+          <a href="#_" @click="navigationMenuClose()" class="block px-3.5 py-3 text-sm rounded hover:bg-neutral-100">
+          <span class="block mb-1 font-medium text-black">Tails</span>
+          <span class="block leading-5 opacity-50">The ultimate Tailwind CSS design tool that helps you craft beautiful websites.</span>
+          </a>
+          </div>
+          </div> -->
+          </div>
+          </div>
+          </nav>
+        
+    </div>
+
+    <!-- Content -->
+    <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Navbar -->
+        <div class="bg-white  shadow">
+            <div class="container mx-auto">
+                <div class="flex justify-between items-center py-4 px-2">
+                  <button class="text-gray-500 hover:text-gray-600" id="open-sidebar">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                    <h2>Projects</h2>
+                </button>
+                    <h1 class="text-xl font-semibold">Create Your Websites or Programs</h1>
+
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Content Body -->
+        <div class="bg-white py-24 sm:py-32">
+          <div class="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
+            <div class="max-w-2xl">
+              <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Meet our leadership</h2>
+              <p class="mt-6 text-lg leading-8 text-gray-600" id="typewriter"></p>
+              
+            </div>
+            
+            <ul role="list" class="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2">
+              <li>
+                <div class="flex items-center gap-x-6">
+                  <img class="rounded-full" src="img/photoprofile.jpg" alt="">
+                  
+                  <div>
+                    <h3 class="text-base font-semibold leading-7 tracking-tight text-gray-900">Lingga Sartono</h3>
+                    <p class="text-sm font-semibold leading-6 text-indigo-600">Co-Founder / CEO</p>
+                    
+                  </div>
+                  <div class="relative inline-flex  group">
+                    <div
+                        class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt">
+                    </div>
+                    <a href="https://wa.me/+6281575569016" title="Get quote now"
+                        class="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gradient-to-r from-violet-200 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+                        role="button">Contact Now!
+                    </a>
+                </div>
+                </div>
+                
+              </li>
+             <li>
+              <h4 class="text-3xl md:text-5xl dark:text-white font-bold mb-6">Skills</h4>
+
+    <div class="mb-7">
+        <div class="flex justify-between py-1">
+            <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Web Design</span>
+            <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">80%</span>
+        </div>
+        <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+            <path class="rc-progress-line-trail" d="M 0.5,0.5
+         L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
+            <path class="rc-progress-line-path" d="M 0.5,0.5
+         L 99.5,0.5" stroke-linecap="round" stroke="#FF6464" stroke-width="1" fill-opacity="0"
+                style="stroke-dasharray: 79.2px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+            </path>
+        </svg>
+    </div>
+
+
+    <div class="mb-7">
+        <div class="flex justify-between py-1">
+            <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Mobile & Desktop App </span>
+            <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">70%</span>
+        </div>
+        <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+            <path class="rc-progress-line-trail" d="M 0.5,0.5
+         L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
+            <path class="rc-progress-line-path" d="M 0.5,0.5
+         L 99.5,0.5" stroke-linecap="round" stroke="#9272D4" stroke-width="1" fill-opacity="0"
+                style="stroke-dasharray: 70px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+            </path>
+        </svg>
+    </div>
+
+
+    <div class="mb-7">
+        <div class="flex justify-between py-1">
+            <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Laravel</span>
+            <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">70%</span>
+        </div>
+        <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+            <path class="rc-progress-line-trail" d="M 0.5,0.5
+         L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
+            <path class="rc-progress-line-path" d="M 0.5,0.5
+         L 99.5,0.5" stroke-linecap="round" stroke="#5185D4" stroke-width="1" fill-opacity="0"
+                style="stroke-dasharray: 70px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+            </path>
+        </svg>
+    </div>
+
+
+    <!-- <div class="mb-7">
+        <div class="flex justify-between py-1">
+            <span class="text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">Photoshope</span>
+            <span class="text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">75%</span>
+        </div>
+        <svg class="rc-progress-line" viewBox="0 0 100 1" preserveAspectRatio="none">
+            <path class="rc-progress-line-trail" d="M 0.5,0.5
+         L 99.5,0.5" stroke-linecap="round" stroke="#D9D9D9" stroke-width="1" fill-opacity="0"></path>
+            <path class="rc-progress-line-path" d="M 0.5,0.5
+         L 99.5,0.5" stroke-linecap="round" stroke="#CA56F2" stroke-width="1" fill-opacity="0"
+                style="stroke-dasharray: 74.25px, 100px; stroke-dashoffset: 0px; transition: stroke-dashoffset 0.3s ease 0s, stroke-dasharray 0.3s ease 0s, stroke 0.3s linear 0s, 0.06s;">
+            </path>
+        </svg>
+    </div> -->
+             </li> 
+          
+            </ul>
+            
+          </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const sidebar = document.getElementById('sidebar');
+const openSidebarButton = document.getElementById('open-sidebar');
+
+openSidebarButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    sidebar.classList.toggle('-translate-x-full');
+});
+
+// Close the sidebar when clicking outside of it
+document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
+        sidebar.classList.add('-translate-x-full');
+    }
+});
+</script>
+  
+    <!-- <section class="flex flex-row">
+      <section class="basis-1/4 w-1/4 fixed border border-red-800 ">
+        left  
+      </section>
+      <section class="basis-3/4 w-3/4 right border border-blue-800">
+        right
+        <div class="container mx-auto border-2 border-red-100">
+          <img src="img/photoprofile.jpg" class="rounded-full max-h-96" alt="">
+          <h1 class="uppercase  box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
+              lingga sartono
+          </h1>
+          <p class="uppercase  box-decoration-slice bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
+              i'm programmer
+          </p>
+          <a href="https://wa.me/081575569016">
+            <button  type="button" class="capitalize bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ...">
+                contact me
+            </button>
+        </a>    
+      </div>
+      </section>
+        
+            
+    </section> -->
+
+
+
+
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/kymzibPLqq4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
+  <script>
+  const words = ["Programmer", "Developer", "Consultant"];
+  let i = 0;
+  let j = 0;
+  let currentWord = "";
+  let isDeleting = false;
+
+  function type() {
+    currentWord = words[i];
+    if (isDeleting) {
+      document.getElementById("typewriter").textContent = currentWord.substring(0, j-1);
+      j--;
+      if (j == 0) {
+        isDeleting = false;
+        i++;
+        if (i == words.length) {
+          i = 0;
+        }
+      }
+    } else {
+      document.getElementById("typewriter").textContent = currentWord.substring(0, j+1);
+      j++;
+      if (j == currentWord.length) {
+        isDeleting = true;
+      }
+    }
+    setTimeout(type, 100);
+  }
+
+  type();
+  </script>
+</body>
+</html>
