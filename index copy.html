@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1350, initial-scale=1.0">
+    <title>Runner CV - Lingga Sartono</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0047AB;
+            /* Jersey Blue */
+            --track-blue: #2a6fdb;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --gold: #FFD700;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--white);
+            /* White background for full immerse */
+            display: block;
+            /* Remove flex centering */
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        @media print {
+            @page {
+                size: 100% auto;
+                /* Auto size */
+                margin: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                margin: 0;
+                break-inside: avoid;
+                width: 100%;
+            }
+
+            body {
+                padding: 0;
+                margin: 0;
+            }
+        }
+
+        /* Full Width Layout */
+        .page {
+            width: 100%;
+            /* Full Width */
+            max-width: none;
+            /* No Max Width */
+            height: auto;
+            min-height: 100vh;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-shadow: none;
+            /* Remove shadow */
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Track Background Effect */
+        .track-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                repeating-linear-gradient(90deg,
+                    transparent 0,
+                    transparent 100px,
+                    rgba(255, 255, 255, 0.1) 100px,
+                    rgba(255, 255, 255, 0.1) 105px),
+                linear-gradient(135deg, var(--primary-blue) 0%, #002D62 100%);
+            z-index: 0;
+        }
+
+        .track-texture {
+            /* Simulating track grain */
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* PAGE 1 STYLES */
+        /* PAGE 1 STYLES */
+        #page1 {
+            min-height: auto;
+            /* Allow reducing height below viewport */
+            height: auto;
+            padding-bottom: 50px;
+        }
+
+        #page1 .content {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .header {
+            padding: 15px 50px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
+        }
+
+        .profile-img-container {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 8px solid var(--white);
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+        }
+
+        .profile-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            /* Ensures face is visible if at top of photo */
+        }
+
+        .biodata {
+            flex-grow: 1;
+        }
+
+        .biodata h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            font-size: 1.2rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-item i {
+            color: var(--gold);
+            width: 25px;
+            text-align: center;
+        }
+
+        .profile-section {
+            background-color: var(--white);
+            margin: 0 50px;
+            padding: 15px 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: var(--text-dark);
+        }
+
+        .section-title {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-left: 10px solid var(--gold);
+            padding-left: 15px;
+        }
+
+        .profile-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .pb-section {
+            margin: 10px 50px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .pb-card {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 5px;
+            padding: 8px 12px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-left: 15px solid var(--gold);
+        }
+
+        .pb-distance {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            width: 120px;
+        }
+
+        .pb-details {
+            flex-grow: 1;
+            padding: 0 20px;
+        }
+
+        .pb-time {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-dark);
+        }
+
+        .pb-event {
+            font-size: 1rem;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .medal-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
+        }
+
+        /* PAGE 2 STYLES - TIMELINE */
+        .timeline-container {
+            padding: 20px 50px;
+            position: relative;
+            flex-grow: 1;
+            overflow: visible;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .year-block {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            /* Left, Center Line, Right */
+            grid-auto-flow: dense;
+            gap: 10px 0;
+            /* Vertical gap between rows */
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Vertical Line */
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 20px;
+            bottom: 20px;
+            width: 4px;
+            background: var(--white);
+            transform: translateX(-50%);
+            border-radius: 4px;
+            z-index: 10;
+        }
+
+        .year-marker {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            z-index: 20;
+        }
+
+        .year-marker span {
+            background: var(--gold);
+            color: var(--primary-blue);
+            padding: 5px 30px;
+            border-radius: 30px;
+            font-size: 1.5rem;
+            font-weight: 900;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .event-node {
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 20;
+            width: 100%;
+        }
+
+        .event-node.left {
+            grid-column: 1;
+            justify-content: flex-end;
+            text-align: right;
+        }
+
+        .event-node.right {
+            grid-column: 3;
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        .event-node.center {
+            grid-column: 1 / -1;
+            justify-content: center;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .event-card {
+            width: 25%;
+            background: var(--white);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .event-card.wide-card {
+            width: 35%;
+            /* Adjusted from 45% based on user feedback */
+        }
+
+        /* Connector dots */
+        .event-dot {
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            transform: translateY(-50%);
+            z-index: 25;
+        }
+
+        .event-node.left .event-dot {
+            right: -40px;
+            /* Center of 60px gap is 30px. Dot radius 10px. 30+10=40 */
+            left: auto;
+        }
+
+        .event-node.right .event-dot {
+            left: -40px;
+            right: auto;
+        }
+
+        .event-node.center .event-dot {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            /* Hide dot if card covers it, or position it differently */
+        }
+
+        .event-node.center .event-card {
+            z-index: 30;
+            width: 15%;
+            /* Ensure high z-index to cover line if needed */
+        }
+
+        /* Triple Layout for specific rows (Left - Middle - Right) */
+        .year-block.triple-layout {
+            grid-template-columns: 1fr 1.4fr 1fr;
+            /* Wider middle column */
+            gap: 10px;
+        }
+
+        .year-block.triple-layout .event-node.left .event-dot,
+        .year-block.triple-layout .event-node.right .event-dot {
+            display: none;
+            /* Hide connector dots in this layout as they won't reach center */
+        }
+
+        .event-node.middle {
+            grid-column: 2;
+            justify-content: center;
+            text-align: center;
+            z-index: 40;
+        }
+
+        .event-node.middle .event-card {
+            width: 40%;
+            /* A little smaller as requested */
+        }
+
+        .year-block.triple-layout .event-node.left .event-card,
+        .year-block.triple-layout .event-node.right .event-card {
+            width: 45%;
+            /* Resize to match standard photo cards (approx half of 90%) */
+        }
+
+        .event-date {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            margin-bottom: 3px;
+        }
+
+        .event-name {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+            line-height: 1.2;
+        }
+
+        .event-meta {
+            font-size: 0.8rem;
+            color: #555;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .event-node.left .event-meta {
+            justify-content: flex-end;
+        }
+
+        .event-node.center .event-meta,
+        .event-node.middle .event-meta {
+            justify-content: center;
+        }
+
+        .pb-badge {
+            background: var(--gold);
+            color: var(--primary-blue);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: inline-block;
+        }
+
+        .pacer-badge {
+            background: #ff4757;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: inline-block;
+        }
+
+        .event-photo {
+            margin-top: 10px;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 9 / 16;
+            border-radius: 8px;
+            background: #000;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .event-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        /* Special overrides for specific requests */
+        .event-node.center .event-card.wide-photo-fixed {
+            width: 30%;
+            /* Double width of normal centered card */
+        }
+
+        .event-node.center .event-card.wide-photo-fixed .event-photo {
+            aspect-ratio: 9 / 8;
+            /* Adjust aspect ratio to keep height similar to 9/16 at 15% width */
+        }
+
+        .no-photo {
+            display: none;
+        }
+
+        /* Summary List Styles */
+        .event-summary-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .event-summary-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .event-summary-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* Split Layout for Profile & PB */
+        .split-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 0 50px;
+            margin-top: 20px;
+        }
+
+        /* Adjust margins for children since container handles padding */
+        .split-container .profile-section,
+        .split-container .pb-section {
+            margin: 0;
+            height: 100%;
+            /* Match heights */
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .split-container {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+                gap: 20px;
+                padding: 30px 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+                text-align: left;
+            }
+
+            .info-item {
+                justify-content: center;
+            }
+
+            .timeline-container {
+                padding: 20px 10px;
+            }
+
+            .event-card,
+            .event-card.wide-card {
+                width: 90%;
+                /* Full width on mobile */
+            }
+
+            .year-block {
+                grid-template-columns: 0 40px 1fr;
+                /* Shift line to left on mobile */
+            }
+
+            .event-node.left {
+                grid-column: 3;
+                text-align: left;
+                justify-content: flex-start;
+            }
+
+            .event-node.left .event-dot {
+                left: -30px;
+                /* Adjust for line position */
+                right: auto;
+            }
+
+            .event-node.right .event-dot {
+                left: -30px;
+            }
+
+            .timeline-container::before {
+                left: 20px;
+                /* Move line to left */
+            }
+
+            .year-marker {
+                text-align: left;
+                padding-left: 50px;
+            }
+
+            .year-marker span {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PAGE 1: BIODATA & PB -->
+    <div class="page" id="page1">
+        <div class="track-bg"></div>
+        <div class="track-texture"></div>
+        <div class="content">
+
+            <!-- HEADER -->
+            <div class="header">
+                <div class="profile-img-container">
+                    <img src="./foto%20profile.jpeg" alt="Lingga Sartono">
+                </div>
+                <div class="biodata">
+                    <h1>Lingga Sartono</h1>
+                    <div class="info-grid">
+                        <div class="info-item"><i class="fas fa-calendar"></i> 32 Tahun</div>
+                        <div class="info-item"><i class="fas fa-ruler-vertical"></i> 172 cm / 63 kg</div>
+                        <div class="info-item"><i class="fab fa-instagram"></i> @daniel_lingga_s</div>
+                        <div class="info-item"><i class="fab fa-strava"></i> Lingga Sartono</div>
+                        <div class="info-item"><i class="fas fa-envelope"></i> lingga.s1993@gmail.com</div>
+                        <div class="info-item"><i class="fab fa-whatsapp"></i> 081575569016</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPLIT SECTION: PROFILE & PB -->
+            <div class="split-container">
+                <!-- PROFILE -->
+                <div class="profile-section">
+                    <div class="section-title">Profile</div>
+                    <p class="profile-text">
+                        "Mulai rutin lari tahun 2022. Bermula dari anak 'cap olahragawan' yang ternyata ngos-ngosan saat
+                        lari 1 km. Bangkit membangun latihan mandiri secara bertahap, menggabungkan ilmu olahraga dasar
+                        dengan wawasan dari coach media sosial & influencer, serta bergabung dengan komunitas EASYPEASY
+                        Run.
+                        Berproses dari 3 km hingga akhirnya menaklukkan Half Marathon."
+                    </p>
+                </div>
+
+                <!-- PERSONAL BEST -->
+                <div class="pb-section">
+                    <div class="section-title" style="color:white; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">Personal
+                        Best <i class="fas fa-medal" style="color:var(--gold)"></i></div>
+
+                    <div class="pb-card">
+                        <div class="pb-distance">5K</div>
+                        <div class="pb-details">
+                            <div class="pb-time">20m 03s</div>
+                            <div class="pb-event">Guntur Geni x Bangpari Fun Run <small>1 Des 2025</small></div>
+                        </div>
+                        <i class="fas fa-medal medal-icon"></i>
+                    </div>
+
+                    <div class="pb-card">
+                        <div class="pb-distance">10K</div>
+                        <div class="pb-details">
+                            <div class="pb-time">50m 01s</div>
+                            <div class="pb-event">Desemberun Magelang <small>21 Des 2025</small></div>
+                        </div>
+                        <i class="fas fa-medal medal-icon"></i>
+                    </div>
+
+                    <div class="pb-card">
+                        <div class="pb-distance">21K</div>
+                        <div class="pb-details">
+                            <div class="pb-time">1h 59m 23s</div>
+                            <div class="pb-event">Borobudur Marathon <small>16 Nov 2025</small></div>
+                        </div>
+                        <i class="fas fa-medal medal-icon"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PAGE 2: TIMELINE (Split into multiple images via JS or just long scroll, but for this task I will make it long and user says 'Halaman 2') -->
+    <!-- I will make Page 2 very long to fit everything, or condense. There are MANY events. -->
+    <div class="page" id="page2" style="height: auto; min-height: 1350px; padding-bottom: 50px;">
+        <div class="track-bg"></div>
+        <div class="track-texture"></div>
+        <div class="content">
+            <div class="header" style="padding: 40px 50px 20px; justify-content: center;">
+                <h1 style="color:white;">Timeline Event</h1>
+            </div>
+
+            <div class="timeline-container">
+
+                <!-- 2026 -->
+                <div class="year-block">
+                    <div class="year-marker"><span>2026</span></div>
+
+                    <div class="event-node center">
+                        <div class="event-dot"></div>
+                        <div class="event-card wide-photo-fixed">
+                            <div class="event-date">01 Feb</div>
+                            <div class="event-name">Mutual Golden Run 10K</div>
+                            <div class="event-meta"><span class="pacer-badge"><i class="fas fa-running"></i> PACER Sub
+                                    60</span></div>
+                            <div class="event-photo"><img
+                                    src="./2026%2001%20Feb%20Pacer%20Mutual%20Golden%20Run%2010K.jpeg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025 -->
+                <!-- 2025 Standard Events -->
+                <div class="year-block" style="margin-bottom: 40px;">
+                    <div class="year-marker"><span>2025</span></div>
+
+                    <div class="event-node right">
+                        <div class="event-dot"></div>
+                        <div class="event-card">
+                            <div class="event-date">21 Des</div>
+                            <div class="event-name">Desemberun 10K Magelang</div>
+                            <div class="event-meta">⏱️ 50m 01s <span class="pb-badge">PB 10K</span></div>
+                            <div class="event-photo"><img src="./2025%2021%20Des%20Desemberun%2010K%20Magelang.jpeg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-node left">
+                        <div class="event-dot"></div>
+                        <div class="event-card">
+                            <div class="event-date">07 Des</div>
+                            <div class="event-name">Komunitas EASYPEASY Anniv 2.0</div>
+                            <div class="event-meta"><span class="pacer-badge"><i class="fas fa-running"></i> PACER Pace
+                                    8</span></div>
+                            <div class="event-photo"><img
+                                    src="./2025%2007%20Des%20Pacer%20Komunitas%20EASYPEASY%20Anniv%202.0%20(Pace%208).jpeg">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2025 Triple Layout Row -->
+                <div class="year-block triple-layout">
+                    <!-- Borobudur (Left) -->
+                    <div class="event-node left">
+                        <div class="event-card">
+                            <div class="event-date">16 Nov</div>
+                            <div class="event-name">Borobudur Marathon 21K</div>
+                            <div class="event-meta">⏱️ 1h 59m 23s <span class="pb-badge">PB 21K</span></div>
+                            <div class="event-photo"><img src="./2025%2016%20Nov%20Borobudur%20Marathon%2021K.jpeg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Summary (Middle) -->
+                    <div class="event-node middle">
+                        <div class="event-card wide-card">
+                            <div class="event-summary-list">
+                                <div class="event-summary-item" style="margin-bottom: 15px; padding-bottom: 15px;">
+                                    <div class="event-date">01 Des</div>
+                                    <div class="event-name">Guntur Geni x Bangpari Fun Run 5K</div>
+                                    <div class="event-meta">⏱️ 20m 03s <span class="pb-badge">PB 5K</span></div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">19 Okt</div>
+                                    <div class="event-name">TNI Run Jogja 10K</div>
+                                    <div class="event-meta">⏱️ 53m 28s</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">10 Sep</div>
+                                    <div class="event-name">Sibakul Jogja Sport Fest 5K</div>
+                                    <div class="event-meta">⏱️ 22m 46s (Posisi 39)</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">10 Agu</div>
+                                    <div class="event-name">Milo Run Jogja 5K</div>
+                                    <div class="event-meta">⏱️ 23m 34s</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">28 Jun</div>
+                                    <div class="event-name">Rupiah Borobudur Playon 5K</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">26 Mei</div>
+                                    <div class="event-name">Tidar Magelang 10K</div>
+                                    <div class="event-meta">⏱️ 56m 13s</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">20 Mei</div>
+                                    <div class="event-name">Blangwir Run Semarang 5K</div>
+                                    <div class="event-meta">⏱️ 26m 23s</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">27 Apr</div>
+                                    <div class="event-name">Duraking Run Bandung 10K</div>
+                                    <div class="event-meta">⏱️ 1h 08m 45s (Fun Run)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gembul (Right) -->
+                    <div class="event-node right">
+                        <div class="event-card">
+                            <div class="event-date">17 Feb</div>
+                            <div class="event-name">Gembul Fun Run</div>
+                            <div class="event-meta">🎭 Best Costume Superhero</div>
+                            <div class="event-photo"><img src="./2025%2017%20Feb%20Gembul%20Fun%20Run.jpeg"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2024 -->
+                <div class="year-block">
+                    <div class="year-marker"><span>2024</span></div>
+
+                    <div class="event-node left">
+                        <div class="event-dot"></div>
+                        <div class="event-card wide-card">
+                            <div class="event-date">17 Des</div>
+                            <div class="event-name">Semarang 10K</div>
+                            <div class="event-meta">⏱️ 55m 54s</div>
+                        </div>
+                    </div>
+
+                    <div class="event-node right">
+                        <div class="event-dot"></div>
+                        <div class="event-card">
+                            <div class="event-date">01 Des</div>
+                            <div class="event-name">Borobudur Marathon 21K</div>
+                            <div class="event-meta">⏱️ 2h 36m 27s</div>
+                            <div class="event-photo"><img src="./2024%2001%20Des%20Borobudur%20Marathon%2021K.jpeg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-node left">
+                        <div class="event-dot"></div>
+                        <div class="event-card">
+                            <div class="event-date">19 Nov</div>
+                            <div class="event-name">Road to Run Against Cancer</div>
+                            <div class="event-meta"><span class="pacer-badge"><i class="fas fa-running"></i> PACER Pace
+                                    8</span></div>
+                            <div class="event-photo"><img
+                                    src="./2024%2019%20Nov%20Pacer%20Road%20to%20Run%20Against%20Cancer%202025%20(Pace%208).jpeg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-node right">
+                        <div class="event-dot"></div>
+                        <div class="event-card wide-card">
+                            <div class="event-summary-list">
+                                <div class="event-summary-item">
+                                    <div class="event-date">20 Okt</div>
+                                    <div class="event-name">HK Mustika Fun Run 10K</div>
+                                    <div class="event-meta">⏱️ 52m 49s <span class="pb-badge">PB</span></div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">03 Okt</div>
+                                    <div class="event-name">Sibakul Jogja Sport Fest 5K</div>
+                                    <div class="event-meta">⏱️ 22m 41s</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">24 Agu</div>
+                                    <div class="event-name">Boyolali 7K</div>
+                                    <div class="event-meta">⏱️ 34m 56s</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">03 Agu</div>
+                                    <div class="event-name">KAI Bandara Glow Night Fun Run 10K</div>
+                                    <div class="event-meta">⏱️ 58m 22s <span class="pb-badge">PB</span></div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">07 Jul</div>
+                                    <div class="event-name">Rupiah Borobudur Playon 5K</div>
+                                    <div class="event-meta">⏱️ 25m 56s <span class="pb-badge">PB</span></div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">09 Jun</div>
+                                    <div class="event-name">BPR DRS Fun Run 7K</div>
+                                    <div class="event-meta">🏅 Top 100 Medalist</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">26 Mei</div>
+                                    <div class="event-name">Milo Run 5K</div>
+                                    <div class="event-meta">⏱️ 27m 04s</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">12 Mei</div>
+                                    <div class="event-name">Long Run Madiun 19K</div>
+                                    <div class="event-meta">⏱️ 2h 26m 44s</div>
+                                </div>
+                                <div class="event-summary-item">
+                                    <div class="event-date">21 Apr</div>
+                                    <div class="event-name">LebaRun Bangpari 10K</div>
+                                    <div class="event-meta">⏱️ 1h 15m 43s</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2023 -->
+                <div class="year-block">
+                    <div class="year-marker"><span>2023</span></div>
+
+                    <div class="event-node right">
+                        <div class="event-dot"></div>
+                        <div class="event-card">
+                            <div class="event-date">19 Nov</div>
+                            <div class="event-name">Borobudur Marathon 10K</div>
+                            <div class="event-meta">⏱️ 1h 10m 17s</div>
+                            <div class="event-photo"><img src="./2023%2019%20Nov%20Borobudur%20Marathon%2010K.jpeg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="event-node left">
+                        <div class="event-dot"></div>
+                        <div class="event-card wide-card">
+                            <div class="event-date">15 Okt</div>
+                            <div class="event-name">Borobudur Trail Run 5K</div>
+                            <div class="event-meta">⏱️ 40m 38s</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2022 -->
+                <div class="year-block">
+                    <div class="year-marker"><span>2022</span></div>
+
+                    <div class="event-node center">
+                        <div class="event-dot"></div>
+                        <div class="event-card">
+                            <div class="event-date">13 Nov</div>
+                            <div class="event-name">Borobudur Marathon 21KM</div>
+                            <div class="event-meta">⏱️ 3h 24m 45s</div>
+                            <div class="event-photo"><img
+                                    src="./2022%2013%20Nov%20Borobudur%20Marathon%202022%2021KM.jpeg">
+                            </div>
+                            <div class="event-meta">CIKAL BAKAL MULAI KETAGIHAN LARI</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
